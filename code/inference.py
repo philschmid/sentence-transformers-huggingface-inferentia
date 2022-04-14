@@ -1,3 +1,4 @@
+
 import os
 from transformers import AutoConfig, AutoTokenizer
 import torch
@@ -53,4 +54,4 @@ def predict_fn(data, model_tokenizer_model_config):
     sentence_embeddings = F.normalize(sentence_embeddings, p=2, dim=1)
     
     # return dictonary, which will be json serializable
-    return {"vectors": sentence_embeddings}
+    return {"vectors": sentence_embeddings[0].tolist()}
